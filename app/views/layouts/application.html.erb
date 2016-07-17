@@ -20,20 +20,20 @@
         <div class="pull-right">
           <% unless user_signed_in? %>
             <span class="session-link">
-              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-user blue-glyphicon" aria-hidden="true"></span>
               <%= link_to "Sign In", new_user_session_path %>
             </span>
             <span class="session-link">
-              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-plus blue-glyphicon" aria-hidden="true"></span>
               <%= link_to "Register", new_user_registration_path %>
             </span>
           <% else %>
             <span class="session-link">
-              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-user blue-glyphicon" aria-hidden="true"></span>
               <%= current_user.username %>
             </span>
             <span class="session-link">
-              <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-off blue-glyphicon" aria-hidden="true"></span>
               <% link_to "Sign Out", destroy_user_session_path, :method => :delete %>
             </span>
           <% end %>

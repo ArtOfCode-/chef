@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+.header-content, .content, .footer-content {
+  width: 980px;
+}
+
+.blue-glyphicon {
+  color: #337ab7;
+}
