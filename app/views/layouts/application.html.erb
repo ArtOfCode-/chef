@@ -2,7 +2,11 @@
 <html>
 <head>
   <title>The Student Chef | <%= yield(:title) %></title>
+  <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "https://code.jquery.com/jquery-2.2.2.min.js" %>
+  <%= javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" %>
+  <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -24,14 +28,14 @@
               <% link_to "Register", new_user_registration_path %>
             </span>
           <% else %>
-          <span class="session-link">
-            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-            <%= current_user.username %>
-          </span>
-          <span class="session-link">
-            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-            <% link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-          </span>
+            <span class="session-link">
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              <%= current_user.username %>
+            </span>
+            <span class="session-link">
+              <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              <% link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+            </span>
           <% end %>
           <!-- TODO: Search bar -->
           <!-- TODO: CTA Start Your Recipe Book -->
