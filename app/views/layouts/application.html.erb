@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Chef</title>
+  <title>The Student Chef | <%= yield(:title) %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="header">
+    <div class="header-content">
+      <div class="float-left site-logo">
+        <%= image_tag 'logo.png', :height => 40 %>
+      </div>
+      <div class="float-right">
+        <!-- TODO: Search bar -->
+        <!-- TODO: Sign In/Register -->
+        <!-- TODO: CTA Start Your Recipe Book -->
+      </div>
+    </div>
+  </div>
+  <div class="container">
 
-<%= yield %>
+  </div>
+  <div class="footer">
 
+  </div>
 </body>
 </html>
