@@ -16,6 +16,15 @@
 
 .header-content, .content, .footer-content {
   width: 980px;
+  padding: 5px;
+}
+
+.header-controls {
+  margin: 30px 0;
+}
+
+.session-link {
+  margin: 0 5px;
 }
 
 .blue-glyphicon {
