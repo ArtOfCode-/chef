@@ -9,14 +9,21 @@
 <body>
   <div class="header">
     <div class="header-content">
-      <div class="float-left site-logo">
-        <%= image_tag 'logo.png', :height => 40 %>
+      <div class="toplevel-controls clearfix">
+        <div class="float-left site-logo">
+          <%= image_tag 'logo.png', :height => 80 %>
+        </div>
+        <div class="float-right">
+          <!-- TODO: Search bar -->
+          <!-- TODO: Sign In/Register -->
+          <!-- TODO: CTA Start Your Recipe Book -->
+        </div>
       </div>
-      <div class="float-right">
-        <!-- TODO: Search bar -->
-        <!-- TODO: Sign In/Register -->
-        <!-- TODO: CTA Start Your Recipe Book -->
-      </div>
+      <% if user_signed_in? %>
+        <div class="account">
+
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="container">
