@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class HomeControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  include Devise::TestHelpers
+
+  test "should get home page" do
+    get :index
+    assert_response(200)
+  end
 end
