@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class HomeControllerTest < ActionDispatch::IntegrationTest
-  include Devise::TestHelpers
+  include Devise::Test::ControllerHelpers
 
   test "should get home page" do
     get :index
