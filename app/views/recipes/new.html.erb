@@ -65,11 +65,13 @@
 
   <div class="field">
     <%= f.label :access_level %>
-    <%= f.select :access_level do
+    <%= f.select :access_level, class: "form-control access-select" do
       AccessLevel.all.each do |al|
         content_tag(:option, al.name, value: al.id, data: { description: al.description })
       end
     end %>
+    <p class="text-muted access-desc"></p>
+  </div>
 
   <br/>
 

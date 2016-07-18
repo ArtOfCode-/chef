@@ -17,4 +17,8 @@ $(document).on('ready turbolinks:load', () ->
       return true
   )
 
+  $('.access-select').on('change', () ->
+    $('.access-desc').text($(this).find('option:selected').data('description'))
+  )
+
 )
