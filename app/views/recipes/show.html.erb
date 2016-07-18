@@ -16,6 +16,15 @@
     <% minutes = (@recipe.time / 60) - (hours * 60) %>
     <span class="glyphicon glyphicon-time"></span> <%= hours %>h <%= minutes %>m
   </span>
+  <span class="detail-unit">
+    <span class="glyphicon glyphicon-pencil theme-glyphicon"></span>
+    <%= link_to "Edit", url_for(:controller => :recipes, :action => :edit, :id => @recipe.id) %>
+  </span>
+  <span class="detail-unit">
+    <span class="glyphicon glyphicon-trash theme-glyphicon"></span>
+    <%= link_to "Delete", url_for(:controller => :recipes, :action => :destroy, :id => @recipe.id),
+        :method => :delete, :data => { :confirm => "Are you sure? This action is not reversible." } %>
+  </span>
 </div>
 
 <hr />
