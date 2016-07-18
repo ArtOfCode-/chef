@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160718110055) do
+ActiveRecord::Schema.define(version: 20160718134511) do
 
   create_table "access_levels", force: :cascade do |t|
     t.string   "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160718110055) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "access_level_id"
+    t.string   "ingredients"
     t.index ["access_level_id"], name: "index_recipes_on_access_level_id"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
