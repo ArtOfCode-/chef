@@ -52,7 +52,7 @@ class RecipesController < ApplicationController
   end
 
   def my_list
-    @recipes = Recipe.users
+    @recipes = Recipe.users(current_user)
   end
 
   private
