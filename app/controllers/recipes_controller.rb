@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, :except => [:show, :public_list]
   before_action :set_recipe, :only => [:show, :edit, :update, :destroy]
-  before_action :verify_authorization, :only => [:edit, :update, :destroy
+  before_action :verify_authorization, :only => [:edit, :update, :destroy]
   before_action :verify_show_auth, :only => [:show]
 
   def show
