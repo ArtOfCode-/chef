@@ -63,6 +63,16 @@
 
   <br />
 
+  <div class="field">
+    <%= f.label :access_level %>
+    <%= f.select :access_level do
+      AccessLevel.all.each do |al|
+        content_tag(:option, al.name, value: al.id, data: { description: al.description })
+      end
+    end %>
+
+  <br/>
+
   <div class="actions">
     <%= f.submit "Create", class: "btn btn-primary" %>
   </div>

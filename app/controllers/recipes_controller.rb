@@ -13,6 +13,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new recipe_params
+    @recipe.user = current_user
     if @recipe.save
       redirect_to url_for(:controller => :recipes, :action => :show, :id => @recipe.id)
     else
@@ -62,6 +63,6 @@ class RecipesController < ApplicationController
     end
 
     def recipe_params
-      params.require(:recipe).permit(:title, :description, :ingredients, :method, :time)
+      params.require(:recipe).permit(:title, :description, :ingredients, :method, :time, :access_level)
     end
 end
