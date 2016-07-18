@@ -2,7 +2,7 @@
 
 <h3>Create Recipe</h3>
 
-<%= form_for @recipe, url_for(:controller => :recipes, :action => :create) do |f| %>
+<%= form_for @recipe, url: url_for(:controller => :recipes, :action => :create) do |f| %>
   <div class="field">
     <%= f.label :title, "Title your recipe" %><br />
     <%= f.text_field :title, class: "form-control" %>
