@@ -2,7 +2,18 @@
 
 <h3>Create Recipe</h3>
 
-<%= form_for @recipe, url: url_for(:controller => :recipes, :action => :create) do |f| %>
+<%= form_for @recipe, url: url_for(:controller => :recipes, :action => :create), html: { class: "new-recipe-form" } do |f| %>
+  <% if @recipe.errors.any? %>
+    <div class="alert alert-danger">
+      <p>The following errors prevented your recipe from being saved:</p>
+      <ul>
+        <% @recipe.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="field">
     <%= f.label :title, "Title your recipe" %><br />
     <%= f.text_field :title, class: "form-control", placeholder: "Appetising Apple Pie" %>
