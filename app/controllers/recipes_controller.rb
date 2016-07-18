@@ -19,7 +19,7 @@ class RecipesController < ApplicationController
 
   def create
     # We get the access level ID as a parameter, not the AccessLevel itself, so let's set that up properly to avoid errors.
-    params[:recipe][:access_level] = AccessLevel.find(params[:recipe][:access_level])
+    params[:recipe][:access_level] = AccessLevel.where(:id => params[:recipe][:access_level]).first
 
     @recipe = Recipe.new recipe_params
     @recipe.user = current_user
@@ -35,7 +35,7 @@ class RecipesController < ApplicationController
   end
 
   def update
-    params[:recipe][:access_levels] = AccessLevel.find(params[:recipe][:access_level])
+    params[:recipe][:access_level] = AccessLevel.where(:id => params[:recipe][:access_level]).first
 
     @recipe.access_level = params[:recipe][:access_level]
     if @recipe.update(recipe_params)
