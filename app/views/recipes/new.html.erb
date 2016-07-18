@@ -19,12 +19,16 @@
 
   <div class="field">
     <%= f.label :method, "How do you make it?" %><br />
+    <div class="alert alert-info">
+      <p><span class="glyphicon glyphicon-italic"></span> <em>You can use <a class="alert-link" href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>
+        for formatting in this field. <a class="alert-link" href="https://guides.github.com/features/mastering-markdown/">Guide to using Markdown</a></em></p>
+    </div>
     <%= f.text_area :method, { rows: 15, class: "form-control" } %>
   </div>
 
   <br />
 
-  <div class="field" style="width: 100px;">
+  <div class="field" style="width: 200px;">
     <label for="time">How long does it take?</label><br />
     <div class="input-group">
       <input type="number" class="form-control hours-input" placeholder="HH" />
