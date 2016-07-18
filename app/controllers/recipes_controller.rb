@@ -14,9 +14,10 @@ class RecipesController < ApplicationController
   def create
     # We get the access level ID as a parameter, not the AccessLevel itself, so let's set that up properly to avoid errors.
     params[:recipe][:access_level] = AccessLevel.find(params[:recipe][:access_level])
-    
+
     @recipe = Recipe.new recipe_params
     @recipe.user = current_user
+    @recipe.access_level = params[:recipe][:access_level]
     if @recipe.save
       redirect_to url_for(:controller => :recipes, :action => :show, :id => @recipe.id)
     else
