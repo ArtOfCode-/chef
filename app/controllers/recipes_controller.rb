@@ -27,6 +27,10 @@ class RecipesController < ApplicationController
 
   end
 
+  def internal_list
+
+  end
+
   def my_list
 
   end
