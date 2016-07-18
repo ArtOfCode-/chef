@@ -62,7 +62,7 @@ class RecipesController < ApplicationController
       if @recipe.access_level.name == 'Public'
         return true
       else
-        not_found unless user_signed_in? && @recipe.has_access(current_user)
+        render :template => 'errors/not_found' unless user_signed_in? && @recipe.has_access(current_user)
       end
     end
 
