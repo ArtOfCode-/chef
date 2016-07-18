@@ -18,6 +18,8 @@
   </span>
 </div>
 
+<hr />
+
 <h4>Ingredients</h4>
 <%= raw(sanitize(RecipesController.renderer.render(@recipe.ingredients), scrubber: MarkdownScrubber.new)) %>
 
