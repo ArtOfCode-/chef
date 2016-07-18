@@ -57,6 +57,10 @@
             <span class="glyphicon glyphicon-list"></span>
             <%= link_to "My Recipes", url_for(:controller => '/recipes', :action => :my_list) %>
           </span>
+          <span class="nav-link">
+            <span class="glyphicon glyphicon-plus"></span>
+            <%= link_to "New Recipe", url_for(:controller => '/recipes', :action => :new) %>
+          </span>
         <% end %>
       </div>
     </div>
