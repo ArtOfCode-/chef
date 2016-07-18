@@ -2,6 +2,9 @@ class Recipe < ApplicationRecord
   belongs_to :user
   belongs_to :access_level
 
+  validates :access_level, :presence => true
+  validates :title, :presence => true, :length => { :minimum => 15 }
+
   def self.publics
     #Recipe.joins(:access_levels).where(:access_level => { :name => 'Public' })
     AccessLevel.where(:name => 'Public').first.recipes
