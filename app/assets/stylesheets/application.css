@@ -32,7 +32,7 @@ a:hover {
   background: white;
 }
 
-.header-content, .content, .footer-content {
+.header-content, .content, .footer-content, .nav-content {
   width: 980px;
   padding: 5px;
 }
@@ -50,5 +50,13 @@ a:hover {
 }
 
 .nav {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 5px;
+}
+
+.content-page {
+  margin: 5px;
+  background: white;
+  border-radius: 3px;
+  border-top: 3px solid #BF1E2D;
 }
