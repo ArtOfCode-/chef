@@ -44,10 +44,20 @@
     </div>
     <div class="nav">
       <div class="nav-content center-block">
+        <span class="nav-link">
+          <span class="glyphicon glyphicon-list"></span>
+          <%= link_to "Public Recipes", url_for(:controller => :recipes, :action => :public_list) %>
+        </span>
         <% if user_signed_in? %>
-
+          <span class="nav-link">
+            <span class="glyphicon glyphicon-list"></span>
+            <%= link_to "Internal Recipes", url_for(:controller => :recipes, :action => :internal_list) %>
+          </span>
+          <span class="nav-link">
+            <span class="glyphicon glyphicon-list"></span>
+            <%= link_to "My Recipes", url_for(:controller => :recipes, :action => :my_list) %>
+          </span>
         <% end %>
-
       </div>
     </div>
   </div>

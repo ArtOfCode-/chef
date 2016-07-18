@@ -55,6 +55,15 @@ a:hover {
   margin-bottom: 5px;
 }
 
+.nav-link {
+  margin: 5px 10px;
+  color: white;
+}
+
+.nav-link a, .nav-link a:hover {
+  color: white;
+}
+
 .content-page {
   background: white;
   border-radius: 4px;
