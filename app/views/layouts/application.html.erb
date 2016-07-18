@@ -57,9 +57,9 @@
         <span class="glyphicon glyphicon-info-sign"></span> <%= flash[:notice] %>
       </div>
     <% end %>
-    <% if flash[:error].present? %>
+    <% if flash[:alert].present? %>
       <div class="alert alert-danger">
-        <span class="glyphicon glyphicon-exclamation-sign"></span> <%= flash[:error] %>
+        <span class="glyphicon glyphicon-exclamation-sign"></span> <%= flash[:alert] %>
       </div>
     <% end %>
     <div class="content-page">
