@@ -68,7 +68,7 @@ class RecipesController < ApplicationController
     end
 
     def verify_authorization
-      @recipe.user == current_user
+      @recipe.user == current_user || current_user.is_admin
     end
 
     def verify_show_auth
