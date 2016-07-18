@@ -20,20 +20,20 @@
         <div class="pull-right header-controls">
           <% unless user_signed_in? %>
             <span class="session-link">
-              <span class="glyphicon glyphicon-user blue-glyphicon" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-user theme-glyphicon" aria-hidden="true"></span>
               <%= link_to "Sign In", new_user_session_path %>
             </span>
             <span class="session-link">
-              <span class="glyphicon glyphicon-plus blue-glyphicon" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-plus theme-glyphicon" aria-hidden="true"></span>
               <%= link_to "Register", new_user_registration_path %>
             </span>
           <% else %>
             <span class="session-link">
-              <span class="glyphicon glyphicon-user blue-glyphicon" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-user theme-glyphicon" aria-hidden="true"></span>
               <%= current_user.username %>
             </span>
             <span class="session-link">
-              <span class="glyphicon glyphicon-off blue-glyphicon" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-off theme-glyphicon" aria-hidden="true"></span>
               <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
             </span>
           <% end %>
@@ -41,11 +41,9 @@
           <!-- TODO: CTA Start Your Recipe Book -->
         </div>
       </div>
-      <% if user_signed_in? %>
-        <div class="account">
-
-        </div>
-      <% end %>
+      <div class="nav">
+        placeholder
+      </div>
     </div>
   </div>
   <div class="content center-block">
