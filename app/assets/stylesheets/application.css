@@ -14,6 +14,10 @@
  *= require_self
  */
 
+body {
+  background: #CCC;
+}
+
 a {
   color: #BF1E2D;
   text-decoration: none;
@@ -22,6 +26,10 @@ a {
 a:hover {
   color: #BF1E2D;
   text-decoration: underline;
+}
+
+.header {
+  background: white;
 }
 
 .header-content, .content, .footer-content {
@@ -42,5 +50,5 @@ a:hover {
 }
 
 .nav {
-  border: 1px 0 solid #BF1E2D;
+  background: rgba(0, 0, 0, 0.5);
 }
