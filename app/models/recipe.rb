@@ -6,7 +6,7 @@ class Recipe < ApplicationRecord
     if self.access_level.name == 'Internal'
       return true
     elsif self.access_level.name == 'Private'
-      return user == self.user
+      return user == self.user || user.is_admin
     end
   end
 end
