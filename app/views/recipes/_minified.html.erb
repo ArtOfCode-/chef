@@ -1,0 +1,13 @@
+<div class="recipe-minified clearfix">
+  <div class="text-details pull-left">
+    <p><%= link_to recipe.title, url_for(:controller => :recipes, :action => :show, :id => recipe.id) %></p>
+    <p class="text-muted"><%= recipe.description.truncate(150) %></p>
+  </div>
+  <div class="meta-details pull-right">
+    <% hours = recipe.time / 3600 %>
+    <% minutes = (recipe.time / 60) - (hours * 60) %>
+    <p class="text-muted"><span class="glyphicon glyphicon-time"></span> <%= hours %>h <%= minutes %>m</p>
+    <p class="text-muted"><span class="glyphicon glyphicon-heart-empty"></span> x</p>
+    <p class="text-muted"><span class="glyphicon glyphicon-user"></span> <%= recipe.user.username %></p>
+  </div>
+</div>

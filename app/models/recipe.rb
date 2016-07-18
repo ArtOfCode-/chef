@@ -2,15 +2,15 @@ class Recipe < ApplicationRecord
   belongs_to :user
   belongs_to :access_level
 
-  def self.public
+  def self.publics
     Recipe.joins(:access_levels).where(:access_level => { :name => 'Public' })
   end
 
-  def self.internal
+  def self.internals
     Recipe.joins(:access_levels).where(:access_level => { :name => 'Internal' })
   end
 
-  def self.user(user)
+  def self.users(user)
     Recipe.joins(:access_levels).where(:access_level => { :name => 'Private' }, :user => user)
   end
 

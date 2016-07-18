@@ -1,0 +1,4 @@
+<h3>Internal Recipes</h3>
+<% @recipes.each do |r| %>
+  <%= render :template => 'recipes/minified', :recipe => r %>
+<% end %>

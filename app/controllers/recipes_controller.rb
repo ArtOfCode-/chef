@@ -44,15 +44,15 @@ class RecipesController < ApplicationController
   end
 
   def public_list
-
+    @recipes = Recipe.publics
   end
 
   def internal_list
-
+    @recipes = Recipe.internals
   end
 
   def my_list
-
+    @recipes = Recipe.users
   end
 
   private
