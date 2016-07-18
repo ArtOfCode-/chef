@@ -16,7 +16,7 @@
     <% minutes = (@recipe.time / 60) - (hours * 60) %>
     <span class="glyphicon glyphicon-time"></span> <%= hours %>h <%= minutes %>m
   </span>
-  <% if user_logged_in? && (@recipe.user == current_user || current_user.is_admin) %>
+  <% if user_signed_in? && (@recipe.user == current_user || current_user.is_admin) %>
     <span class="detail-unit">
       <span class="glyphicon glyphicon-pencil theme-glyphicon"></span>
       <%= link_to "Edit", url_for(:controller => :recipes, :action => :edit, :id => @recipe.id) %>
