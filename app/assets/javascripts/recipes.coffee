@@ -9,7 +9,7 @@ $(document).on('ready turbolinks:load', () ->
       ev.preventDefault()
       hours = $('.hours-input').val()
       mins = $('.minutes-input').val()
-      seconds = (hours * 3600) + (minutes * 60)
+      seconds = (hours * 3600) + (mins * 60)
       $('.calc-time').val(seconds)
       $(this).data('calculated', true)
       $(this).submit()
