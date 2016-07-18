@@ -1,3 +1,5 @@
+<% content_for :title, "My Recipes" %>
+
 <h3>My Recipes</h3>
 <% @recipes.each do |r| %>
   <%= render 'recipes/minified', :recipe => r %>
