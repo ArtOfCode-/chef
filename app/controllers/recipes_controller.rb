@@ -4,6 +4,12 @@ class RecipesController < ApplicationController
   before_action :verify_authorization, :only => [:edit, :update, :destroy]
   before_action :verify_show_auth, :only => [:show]
 
+  @@markdown_renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(), extensions = {})
+
+  def self.renderer
+    @@markdown_renderer
+  end
+
   def show
   end
 
@@ -69,4 +75,16 @@ class RecipesController < ApplicationController
     def recipe_params
       params.require(:recipe).permit(:title, :description, :ingredients, :method, :time, :access_level)
     end
+end
+
+class MarkdownScrubber < Rails::Html::PermitScrubber
+  def initialize
+    super
+    self.tags = %w( a p b i em strong hr h1 h2 h3 h4 h5 h6 blockquote img strike del code pre br ul ol li )
+    self.attributes = %w( href title src height width )
+  end
+
+  def skip_node?(node)
+    node.text?
+  end
 end

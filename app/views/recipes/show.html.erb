@@ -1,1 +1,25 @@
-showing recipe <%= @recipe.id %>
+<% content_for :title, @recipe.title  %>
+
+<h3><%= @recipe.title %></h3>
+<div class="recipe-details">
+  <div class="recipe-description">
+    <%= @recipe.description %>
+  </div>
+  <span class="detail-unit text-muted">
+    <span class="glyphicon glyphicon-user"></span> <%= @recipe.user.username %>
+  </span>
+  <span class="detail-unit text-muted">
+    <span class="glyphicon glyphicon-heart-empty"></span> x favourites
+  </span>
+  <span class="detail-unit text-muted">
+    <% hours = @recipe.time / 3600 %>
+    <% minutes = (@recipe.time / 60) - (hours * 60) %>
+    <span class="glyphicon glyphicon-time"></span> <%= hours %>h <%= minutes %>m
+  </span>
+</div>
+
+<h4>Ingredients</h4>
+<%= raw(sanitize(RecipesController.renderer.render(@recipe.ingredients), scrubber: MarkdownScrubber.new)) %>
+
+<h4>Method</h4>
+<%= raw(sanitize(RecipesController.renderer.render(@recipe.method), scrubber: MarkdownScrubber.new)) %>
