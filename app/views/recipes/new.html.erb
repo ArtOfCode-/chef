@@ -65,11 +65,7 @@
 
   <div class="field">
     <%= f.label :access_level %>
-    <%= f.select :access_level, class: "form-control access-select" do
-      AccessLevel.all.each do |al|
-        content_tag(:option, al.name, value: al.id, data: { description: al.description })
-      end
-    end %>
+    <%= f.select :access_level, options_for_select(AccessLevel.all.map(|al| [al.name, al.id, { 'data-description' => al.description }])), class: "form-control" %>
     <p class="text-muted access-desc"></p>
   </div>
 
