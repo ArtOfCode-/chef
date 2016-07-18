@@ -1,3 +1,39 @@
 <% content_for :title, "Create Recipe" %>
 
 <h3>Create Recipe</h3>
+
+<%= form_for @recipe, url_for(:controller => :recipes, :action => :create) do |f| %>
+  <div class="field">
+    <%= f.label :title, "Title your recipe" %><br />
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description, "A short description of the recipe" %><br />
+    <%= f.text_area :description, { rows: 5, class: "form-control" } %>
+  </div>
+
+  <div class="field">
+    <%= f.label :method, "How do you make it?" %><br />
+    <%= f.text_area :method, { rows: 15, class: "form-control" } %>
+  </div>
+
+  <div class="field">
+    <label for="time">How long does it take?</label><br />
+    <div class="input-group">
+      <input type="number" class="form-control hours-input" placeholder="HH" />
+      <span class="input-group-addon">:</span>
+      <input type="number" class="form-control minutes-input" placeholder="MM" />
+    </div>
+  </div>
+
+  <br />
+
+  <div class="actions">
+    <%= f.submit "Create", class: "btn btn-primary" %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden :time, class: "calc-time" %>
+  </div>
+<% end %>
