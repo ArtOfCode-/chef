@@ -1,19 +1,23 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, :except => [:show, :public_list]
-  before_action :set_recipe, :only => [:show, :new, :create, :edit, :update, :destroy]
+  before_action :set_recipe, :only => [:show, :edit, :update, :destroy]
   before_action :verify_authorization, :only => [:edit, :update, :destroy
   before_action :verify_show_auth, :only => [:show]
 
   def show
-
   end
 
   def new
-
+    @recipe = Recipe.new
   end
 
   def create
-
+    @recipe = Recipe.new recipe_params
+    if @recipe.save
+      redirect_to url_for(:controller => :recipes, :action => :show, :id => @recipe.id)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -55,5 +59,9 @@ class RecipesController < ApplicationController
       else
         not_found unless user_signed_in? && @recipe.has_access(current_user)
       end
+    end
+
+    def recipe_params
+      params.require(:recipe).permit(:title, :description, :method, :time)
     end
 end
