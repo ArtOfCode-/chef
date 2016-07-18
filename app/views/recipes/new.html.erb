@@ -64,8 +64,9 @@
   <br />
 
   <div class="field">
-    <%= f.label :access_level %>
-    <%= f.select :access_level, options_for_select(AccessLevel.all.map{|al| [al.name, al.id, { 'data-description' => al.description }]}), class: "form-control" %>
+    <%= f.label :access_level %><br />
+    <%= f.select :access_level, options_for_select(AccessLevel.all.map{|al| [al.name, al.id, { 'data-description' => al.description }]}),
+        { include_blank: true }, { class: "form-control" } %>
     <p class="text-muted access-desc"></p>
   </div>
 
