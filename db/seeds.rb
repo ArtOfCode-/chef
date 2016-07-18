@@ -9,7 +9,7 @@
 access_levels = [
   { name: 'Public', description: 'Will be visible to everyone, including logged-out users.' },
   { name: 'Internal', description: 'Will be visible to every logged-in user.' },
-  { name: 'Private', description: 'Will only be visible to you.' }
+  { name: 'Private', description: 'Will only be visible to you and administrators.' }
 ]
 
 AccessLevel.create(access_levels)
