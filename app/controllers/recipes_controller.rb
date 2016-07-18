@@ -32,15 +32,22 @@ class RecipesController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
+    params[:recipe][:access_levels] = AccessLevel.find(params[:recipe][:access_level])
 
+    @recipe.access_level = params[:recipe][:access_level]
+    if @recipe.update(recipe_params)
+      redirect_to url_for(:controller => :recipes, :action => :show, :id => @recipe.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
-
+    @recipe.destroy!
+    redirect_to url_for(:controller => :recipes, :action => :my_list)
   end
 
   def public_list

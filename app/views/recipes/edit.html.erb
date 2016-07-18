@@ -1,0 +1,84 @@
+<% content_for :title, "Edit Recipe" %>
+
+<h3>Edit Recipe</h3>
+
+<%= form_for @recipe, url: url_for(:controller => :recipes, :action => :update), html: { class: "edit-recipe-form" } do |f| %>
+  <% if @recipe.errors.any? %>
+    <div class="alert alert-danger">
+      <p>The following errors prevented your recipe from being saved:</p>
+      <ul>
+        <% @recipe.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title, "Title your recipe" %><br />
+    <%= f.text_field :title, class: "form-control", placeholder: "Appetising Apple Pie" %>
+  </div>
+
+  <br />
+
+  <div class="field">
+    <%= f.label :description, "A short description of the recipe" %><br />
+    <%= f.text_area :description, { rows: 5, class: "form-control", placeholder: "The most eyewateringly tasty apple pie you'll ever make!" } %>
+  </div>
+
+  <br/>
+
+  <div class="field">
+    <%= f.label :ingredients, "What ingredients do you need?" %><br />
+    <div class="alert alert-info">
+      <p><span class="glyphicon glyphicon-info-sign"></span> <em>You can use <a class="alert-link" href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>
+        for formatting in this field. <a class="alert-link" href="https://guides.github.com/features/mastering-markdown/">Guide to using Markdown
+          <span class="glyphicon glyphicon-share"></span></a></em></p>
+    </div>
+    <%= f.text_area :ingredients, { rows: 7, class: "form-control", placeholder: "- 200g self-raising flour\n- 200g caster sugar\n..." } %>
+  </div>
+
+  <br />
+
+  <div class="field">
+    <%= f.label :method, "How do you make it?" %><br />
+    <div class="alert alert-info">
+      <p><span class="glyphicon glyphicon-info-sign"></span> <em>You can use <a class="alert-link" href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>
+        for formatting in this field. <a class="alert-link" href="https://guides.github.com/features/mastering-markdown/">Guide to using Markdown
+          <span class="glyphicon glyphicon-share"></span></a></em></p>
+    </div>
+    <%= f.text_area :method, { rows: 15, class: "form-control" } %>
+  </div>
+
+  <br />
+
+  <div class="field" style="width: 200px;">
+    <label for="time">How long does it take?</label><br />
+    <div class="input-group">
+      <% hours = @recipe.time / 3600 %>
+      <% minutes = (@recipe.time / 60) - (hours * 60) %>
+      <input type="number" class="form-control hours-input" placeholder="HH" value="<%= hours %>" />
+      <span class="input-group-addon">:</span>
+      <input type="number" class="form-control minutes-input" placeholder="MM" value="<%= minutes %>" />
+    </div>
+  </div>
+
+  <br />
+
+  <div class="field">
+    <%= f.label :access_level %><br />
+    <%= f.select :access_level, options_for_select(AccessLevel.all.map{|al| [al.name, al.id, { 'data-description' => al.description }]}),
+        { include_blank: true }, { class: "form-control access-select" } %>
+    <p class="text-muted access-desc"></p>
+  </div>
+
+  <br/>
+
+  <div class="actions">
+    <%= f.submit "Update", class: "btn btn-primary" %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :time, class: "calc-time" %>
+  </div>
+<% end %>

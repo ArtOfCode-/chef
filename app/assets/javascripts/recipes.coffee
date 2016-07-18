@@ -4,7 +4,7 @@
 
 $(document).on('ready turbolinks:load', () ->
 
-  $('.new-recipe-form').on('submit', (ev) ->
+  $('.new-recipe-form, .edit-recipe-form').on('submit', (ev) ->
     unless $(this).data('calculated')
       ev.preventDefault()
       hours = $('.hours-input').val()
