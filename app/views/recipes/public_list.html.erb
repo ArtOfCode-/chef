@@ -1,4 +1,4 @@
 <h3>Public Recipes</h3>
 <% @recipes.each do |r| %>
-  <%= render :partial => 'minified', :recipe => r %>
+  <%= render 'recipes/minified', :recipe => r %>
 <% end %>
