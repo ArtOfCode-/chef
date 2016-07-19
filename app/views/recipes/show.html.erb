@@ -9,7 +9,7 @@
     <span class="glyphicon glyphicon-user"></span> <%= @recipe.user.username %>
   </span>
   <span class="detail-unit text-muted">
-    <%= link_to url_for(:controller => :favorites, :action => :toggle_favorite, :id => @recipe.id), :remote => true do %>
+    <%= link_to url_for(:controller => :favorites, :action => :toggle_favorite, :id => @recipe.id), :remote => true, :class => 'favorite-toggle' do %>
       <span class="glyphicon glyphicon-heart-empty favorite-icon"></span>
     <% end %>
     <span class="favorite-count"><%= @recipe.favorites.count %></span> favourites

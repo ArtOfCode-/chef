@@ -7,13 +7,13 @@ class FavoritesController < ApplicationController
     unless existing.exists?
       @favorite = Favorite.new(:user => current_user, :recipe => @recipe)
       if @favorite.save
-        render :json => { :status => 'success', :remove_class => 'glyphicon-heart-empty', :add_class => 'glyphicon-heart' } and return
+        render :json => { :status => 'success', :remove_class => 'glyphicon-heart-empty', :add_class => 'glyphicon-heart', :favorite_count => @recipe.favorites.count } and return
       else
         render :json => { :status => 'failed', :message => 'Object failed to save.' }, :status => 500 and return
       end
     else
       if existing.destroy
-        render :json => { :status => 'success', :remove_class => 'glyphicon-heart', :add_class => 'glyphicon-heart-empty' } and return
+        render :json => { :status => 'success', :remove_class => 'glyphicon-heart', :add_class => 'glyphicon-heart-empty', :favorite_count => @recipe.favorites.count } and return
       else
         render :json => { :status => 'failed', :message => 'Failed to destroy object.' }, :status => 500 and return
       end

@@ -21,4 +21,11 @@ $(document).on('ready turbolinks:load', () ->
     $('.access-desc').text($(this).find('option:selected').data('description'))
   )
 
+  $('.favorite-toggle').on('ajax:success', (ev, data, status, xhr) ->
+    $('.favorite-icon').removeClass(data['remove_class']).addClass(data['add_class'])
+    $('.favorite-count').text(data['favorite_count'])
+  ).on('ajax:error', (ev, xhr, status, error) ->
+    chef.createNotification('danger', "Can't toggle your favorite right now - try again later.", $(this))
+  )
+
 )
