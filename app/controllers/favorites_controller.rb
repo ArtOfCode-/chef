@@ -12,7 +12,7 @@ class FavoritesController < ApplicationController
         render :json => { :status => 'failed', :message => 'Object failed to save.' }, :status => 500 and return
       end
     else
-      if existing.destroy
+      if existing.destroy_all
         render :json => { :status => 'success', :remove_class => 'glyphicon-heart', :add_class => 'glyphicon-heart-empty', :favorite_count => @recipe.favorites.count } and return
       else
         render :json => { :status => 'failed', :message => 'Failed to destroy object.' }, :status => 500 and return
