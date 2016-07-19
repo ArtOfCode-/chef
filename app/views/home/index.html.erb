@@ -1,0 +1,27 @@
+<% content_for :title, "Home" %>
+
+<h3>Featured Recipes</h3>
+<div class="row">
+  <% @featured.each do |r| %>
+    <%= render 'recipes/feature', :recipe => r %>
+  <% end %>
+  <div class="clearfix">
+    <span class="pull-right">
+      <%= link_to "More featured recipes »", url_for(:controller => :home, :action => :index) %>
+    </span>
+  </div>
+</div>
+
+<h3>Most Favourited</h3>
+<div class="row">
+  <% @favorited.each do |r| %>
+    <%= render 'recipes/feature', :recipe => r %>
+  <% end %>
+  <div class="clearfix">
+    <span class="pull-right">
+      <%= link_to "More favorited recipes »", url_for(:controller => :home, :action => :index) %>
+    </span>
+  </div>
+</div>
+
+<h3>Most Commented</h3>
