@@ -23,7 +23,7 @@ a, a:visited {
   text-decoration: none;
 }
 
-a:hover {
+a:hover, a:active {
   color: #BF1E2D;
   text-decoration: underline;
 }
