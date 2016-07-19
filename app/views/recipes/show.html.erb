@@ -9,15 +9,15 @@
     <span class="glyphicon glyphicon-user"></span> <%= @recipe.user.username %>
   </span>
   <span class="detail-unit text-muted">
+    <% hours = @recipe.time / 3600 %>
+    <% minutes = (@recipe.time / 60) - (hours * 60) %>
+    <span class="glyphicon glyphicon-time"></span> <%= hours %>h <%= minutes %>m
+  </span>
+  <span class="detail-unit text-muted">
     <%= link_to url_for(:controller => :favorites, :action => :toggle_favorite, :id => @recipe.id), :method => :post, :remote => true, :class => 'favorite-toggle' do %>
       <span class="glyphicon glyphicon-heart-empty favorite-icon"></span>
       <span class="favorite-count"><%= @recipe.favorites.count %></span> <%= "favourite".pluralize(@recipe.favorites.count) %>
     <% end %>
-  </span>
-  <span class="detail-unit text-muted">
-    <% hours = @recipe.time / 3600 %>
-    <% minutes = (@recipe.time / 60) - (hours * 60) %>
-    <span class="glyphicon glyphicon-time"></span> <%= hours %>h <%= minutes %>m
   </span>
   <% if user_signed_in? && (@recipe.user == current_user || current_user.is_admin) %>
     <span class="detail-unit">
