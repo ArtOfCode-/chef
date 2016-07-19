@@ -1,6 +1,7 @@
 class Recipe < ApplicationRecord
   belongs_to :user
   belongs_to :access_level
+  has_many :favorites
 
   validates :access_level, :presence => true
   validates :title, :presence => true, :length => { :minimum => 15 }
