@@ -7,7 +7,7 @@
     <% hours = recipe.time / 3600 %>
     <% minutes = (recipe.time / 60) - (hours * 60) %>
     <p class="text-muted"><span class="glyphicon glyphicon-time"></span> <%= hours %>h <%= minutes %>m</p>
-    <p class="text-muted"><span class="glyphicon glyphicon-heart-empty"></span> x</p>
+    <p class="text-muted"><span class="glyphicon glyphicon-heart-empty"></span> <%= recipe.favorites.count %></p>
     <p class="text-muted"><span class="glyphicon glyphicon-user"></span> <%= recipe.user.username %></p>
   </div>
 </div>
