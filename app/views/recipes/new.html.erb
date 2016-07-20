@@ -43,7 +43,7 @@
   <br />
 
   <div class="field" style="width: 200px;">
-    <label for="time">How long does it take?</label><br />
+    <label for="time">How long does it take? <em>(HH:MM)</em></label><br />
     <div class="input-group">
       <input type="number" class="form-control hours-input" placeholder="HH" />
       <span class="input-group-addon">:</span>
@@ -55,6 +55,9 @@
 
   <div class="field">
     <%= f.label :access_level %><br />
+    <div class="alert alert-info">
+      <span class="glyphicon glyphicon-info-sign"></span> Access level governs who can see your recipe. Select an access level to see a description.
+    </div>
     <%= f.select :access_level, options_for_select(AccessLevel.all.map{|al| [al.name, al.id, { 'data-description' => al.description }]}),
         { include_blank: true }, { class: "form-control access-select" } %>
     <p class="text-muted access-desc"></p>
