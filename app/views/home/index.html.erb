@@ -21,3 +21,11 @@
 </div>
 
 <h3>Most Commented</h3>
+<% @commented.each do |r| %>
+  <%= render 'recipes/feature', :recipe => r %>
+<% end %>
+<div class="clearfix">
+  <span class="pull-right">
+    <%= link_to "More commented recipes »", url_for(:controller => :home, :action => :index) %>
+  </span>
+</div>
