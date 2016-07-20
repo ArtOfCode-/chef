@@ -52,7 +52,7 @@
   <% end %>
 </div>
 
-<%= form_for Comment.new, url_for(:controller => :comments, :action => :create), :remote => true,
+<%= form_for Comment.new, url: url_for(:controller => :comments, :action => :create), :remote => true,
     html: { class: "new-comment-form" } do |f| %>
   <div class="field">
     <%= f.label :body, "Comment Text" %><br />
