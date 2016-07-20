@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   delete 'comments/:id',                       :to => 'comments#destroy'
 
   get    'users',                              :to => 'users#index'
+  get    'users/:id',                          :to => 'users#show'
 
   match  '/403',                               :to => 'errors#forbidden',       :via => :all
   match  '/404',                               :to => 'errors#not_found',       :via => :all
