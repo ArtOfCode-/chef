@@ -1,18 +1,20 @@
-<div class="col-sm-4 col-md-4 panel panel-default feature-recipe">
-  <div class="panel-body">
-    <h4><%= link_to recipe.title, url_for(:controller => :recipes, :action => :show, :id => recipe.id) %></h4>
-    <p><%= recipe.description.truncate(150) %></p>
-  </div>
-  <div class="panel-footer">
-    <div class="center-block">
-      <span class="pull-left feature-detail">
-        <span class="glyphicon glyphicon-heart-empty"></span> <%= recipe.favorites.count %>
-      </span>
-      <span class="pull-left feature-detail">
-        <% hours = recipe.time / 3600 %>
-        <% minutes = (recipe.time / 60) - (hours * 60) %>
-        <span class="glyphicon glyphicon-time"></span> <%= hours %>:<%= minutes %>
-      </span>
+<div class="col-sm-4 col-md-4">
+  <div class="panel panel-default feature-recipe">
+    <div class="panel-body">
+      <h4><%= link_to recipe.title, url_for(:controller => :recipes, :action => :show, :id => recipe.id) %></h4>
+      <p><%= recipe.description.truncate(150) %></p>
+    </div>
+    <div class="panel-footer">
+      <div class="center-block">
+        <span class="pull-left feature-detail">
+          <span class="glyphicon glyphicon-heart-empty"></span> <%= recipe.favorites.count %>
+        </span>
+        <span class="pull-left feature-detail">
+          <% hours = recipe.time / 3600 %>
+          <% minutes = (recipe.time / 60) - (hours * 60) %>
+          <span class="glyphicon glyphicon-time"></span> <%= hours %>:<%= minutes %>
+        </span>
+      </div>
     </div>
   </div>
 </div>
