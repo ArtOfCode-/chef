@@ -29,17 +29,14 @@ $(document).on('ready turbolinks:load', () ->
   )
 
   if ($('.mde-enabled').length)
-    ingredients_editor = new SimpleMDE({
-      element: $('.ingredients-field')[0],
-      forceSync: true,
-      indentWithTabs: false,
-      tabSize: 4
-    })
-    method_editor = new SimpleMDE({
-      element: $('.method-field')[0],
-      forceSync: true,
-      indentWithTabs: false,
-      tabSize: 4
-    })
+    $('.mde-field').each(() ->
+      mde = new SimpleMDE({
+        element: this,
+        forceSync: true,
+        indentWithTabs: false,
+        tabSize: 4
+      })
+      mde.render()
+    )
 
 )
