@@ -3,11 +3,11 @@ class UsersController < ApplicationController
     @users = User.all
     case params[:sort]
     when 'newest'
-      @users.order(:created_by => :desc)
+      @users = @users.order(:created_at => :desc)
     when 'recipes'
-      @users.joins(:recipes).group('users.id').order('COUNT(users.id) DESC')
+      @users = @users.joins(:recipes).group('users.id').order('COUNT(users.id) DESC')
     when 'alpha'
-      @users.order(:username)
+      @users = @users.order(:username => :asc)
     end
     @users = @users.paginate(:page => params[:page], :per_page => 50)
   end
