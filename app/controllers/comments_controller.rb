@@ -8,14 +8,18 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.recipe = Recipe.find params[:recipe_id]
     if @comment.save
-      return :json => { :status => 'success', :insert => CommentsController.render(locals: { :comment => @comment }, partial: 'comment').html_safe }, :status => 201
+      render :json => { :status => 'success', :insert => CommentsController.render(locals: { :comment => @comment }, partial: 'comment').html_safe }, :status => 201
     else
-      return :json => { :status => 'failed', :message => 'Object failed to save.' }, :status => 500
+      render :json => { :status => 'failed', :message => 'Object failed to save.' }, :status => 500
     end
   end
 
   def destroy
-
+    if @comment.destroy
+      render :json => { :status => 'success' }
+    else
+      render :json => { :status => 'failed', :message => 'Failed to destroy object.' }, :status => 500
+    end
   end
 
   private
