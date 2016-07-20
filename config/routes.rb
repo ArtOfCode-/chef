@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   delete 'recipes/:id',                        :to => 'recipes#destroy'
   get    'recipes/:id/edit',                   :to => 'recipes#edit'
   patch  'recipes/:id/edit',                   :to => 'recipes#update'
+
   post   'recipes/:id/favorite',               :to => 'favorites#toggle_favorite'
+
+  post   'recipes/:recipe_id/comment',         :to => 'comments#create'
+  delete 'comments/:id',                       :to => 'comments#destroy'
 
   match  '/403',                               :to => 'errors#forbidden',       :via => :all
   match  '/404',                               :to => 'errors#not_found',       :via => :all
