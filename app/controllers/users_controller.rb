@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     when 'alpha'
       @users.order(:username)
     end
-    @users.paginate(:page => params[:page], :per_page => 50)
+    @users = @users.paginate(:page => params[:page], :per_page => 50)
   end
 
   def show
