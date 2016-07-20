@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   get    'users',                              :to => 'users#index'
   get    'users/:id',                          :to => 'users#show'
+  get    'users/:id/recipes/:type',            :to => 'users#recipes'
 
   match  '/403',                               :to => 'errors#forbidden',       :via => :all
   match  '/404',                               :to => 'errors#not_found',       :via => :all

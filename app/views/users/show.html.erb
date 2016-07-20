@@ -1,0 +1,31 @@
+<% content_for :title, @user.username %>
+
+<h3><%= @user.username %></h3>
+<div class="user-stats">
+  <span class="stat-detail">
+    <span class="glyphicon glyphicon-list-alt"></span>
+    <%= @user.recipes.count %> recipes
+  </span>
+  <span class="stat-detail">
+    <span class="glyphicon glyphicon-heart-empty"></span>
+    <%= @user.favorites.count %> favourites
+  </span>
+  <span class="stat-detail">
+    <span class="glyphicon glyphicon-pencil"></span>
+    <%= @user.comments.count %> comments
+  </span>
+</div>
+
+<hr />
+
+<h4>Public Recipes</h4>
+<% @user.public_recipes.limit(5).each do |r| %>
+  <%= render 'recipes/minified', :recipe => r %>
+<% end %>
+<%= link_to "All Public recipes »", url_for(:controller => :users, :action => :recipes, :id => @user.id, :type => 'public') %>
+
+<h4>Internal Recipes</h4>
+<% @user.internal_recipes.limit(5).each do |r| %>
+  <%= render 'recipes/minified', :recipe => r %>
+<% end %>
+<% link_to "All Internal recipes »", url_for(:controller => :users, :action => :recipes, :id => @user.id, :type => 'internal') %>

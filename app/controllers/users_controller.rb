@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :set_user, :only => [:show, :recipes]
+
   def index
     @users = User.all
     case params[:sort]
@@ -13,10 +15,13 @@ class UsersController < ApplicationController
   end
 
   def show
-
   end
 
   def recipes
-
   end
+
+  private
+    def set_user
+      @user = User.find params[:id]
+    end
 end
