@@ -1,0 +1,24 @@
+<% content_for :title, "Users" %>
+
+<h3>Users</h3>
+<p>
+  Sort by:
+  <%= link_to "Newest", url_for(:controller => :users, :action => :index, :sort => 'newest') %> |
+  <%= link_to '# of recipes', url_for(:controller => :users, :action => :index, :sort => 'recipes') %> |
+  <%= link_to 'Alphabetical', url_for(:controller => :users, :action => :index, :sort => 'alpha') %>
+</p>
+
+<hr />
+
+<% @users.in_groups_of(4) do |group| %>
+  <div class="clearfix row">
+    <% group.each do |u| %>
+      <%= render 'users/user', :user => u %>
+    <% end %>
+  </div>
+  <br />
+<% end %>
+
+<div class="text-center">
+  <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+</div>

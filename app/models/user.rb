@@ -6,5 +6,6 @@ class User < ApplicationRecord
          :lockable
 
   has_many :recipes
+  has_many :favorites
   has_many :comments
 end
