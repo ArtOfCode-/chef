@@ -28,4 +28,12 @@ $(document).on('ready turbolinks:load', () ->
     chef.createNotification('danger', "Can't toggle your favorite right now - try again later.", $(this))
   )
 
+  if ($('.mde-field').length)
+    editor = new SimpleMDE({
+      element: $('.mde-field'),
+      forceSync: true,
+      indentWithTabs: false,
+      tabSize: 4
+    })
+
 )
