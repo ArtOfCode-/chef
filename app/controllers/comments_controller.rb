@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new comment_params
     @comment.user = current_user
-    @comment.recipe = Recipe.find params[:recipe_id]
+    @comment.recipe = Recipe.find params[:id]
     if @comment.save
       render :json => { :status => 'success', :insert => CommentsController.render(locals: { :comment => @comment }, partial: 'comment').html_safe }, :status => 201
     else
