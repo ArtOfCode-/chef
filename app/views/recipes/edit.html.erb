@@ -67,9 +67,10 @@
 
   <div class="field">
     <%= f.label :access_level %><br />
-    <%= f.select :access_level, options_for_select(AccessLevel.all.map{|al| [al.name, al.id, { 'data-description' => al.description }]}),
-        { include_blank: true }, { class: "form-control access-select" } %>
-    <p class="text-muted access-desc"></p>
+    <%= f.select :access_level, options_for_select(AccessLevel.all.map{|al| [al.name, al.id, { 'data-description' => al.description }]},
+          [@recipe.access_level.name, @recipe.access_level.id, { 'data-description' => @recipe.access_level.description }]),
+          { include_blank: true }, { class: "form-control access-select" } %>
+    <p class="text-muted access-desc"><%= @recipe.access_level.description %></p>
   </div>
 
   <br/>
