@@ -2,7 +2,7 @@
 
 <h3>Create Recipe</h3>
 
-<%= form_for @recipe, url: url_for(:controller => :recipes, :action => :create), html: { class: "new-recipe-form" } do |f| %>
+<%= form_for @recipe, url: url_for(:controller => :recipes, :action => :create), html: { class: "new-recipe-form mde-enabled" } do |f| %>
   <% if @recipe.errors.any? %>
     <div class="alert alert-danger">
       <p>The following errors prevented your recipe from being saved:</p>
@@ -35,7 +35,7 @@
         for formatting in this field. <a class="alert-link" href="https://guides.github.com/features/mastering-markdown/">Guide to using Markdown
           <span class="glyphicon glyphicon-share"></span></a></em></p>
     </div>
-    <%= f.text_area :ingredients, { rows: 7, class: "form-control", placeholder: "- 200g self-raising flour\n- 200g caster sugar\n..." } %>
+    <%= f.text_area :ingredients, { rows: 7, class: "form-control ingredients-field", placeholder: "- 200g self-raising flour\n- 200g caster sugar\n..." } %>
   </div>
 
   <br />
@@ -47,7 +47,7 @@
         for formatting in this field. <a class="alert-link" href="https://guides.github.com/features/mastering-markdown/">Guide to using Markdown
           <span class="glyphicon glyphicon-share"></span></a></em></p>
     </div>
-    <%= f.text_area :method, { rows: 15, class: "form-control" } %>
+    <%= f.text_area :method, { rows: 15, class: "form-control method-field" } %>
   </div>
 
   <br />

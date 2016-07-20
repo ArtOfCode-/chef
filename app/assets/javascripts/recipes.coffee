@@ -28,9 +28,15 @@ $(document).on('ready turbolinks:load', () ->
     chef.createNotification('danger', "Can't toggle your favorite right now - try again later.", $(this))
   )
 
-  if ($('.mde-field').length)
-    editor = new SimpleMDE({
-      element: $('.mde-field'),
+  if ($('.mde-enabled').length)
+    ingredients_editor = new SimpleMDE({
+      element: $('.ingredients-field')[0],
+      forceSync: true,
+      indentWithTabs: false,
+      tabSize: 4
+    })
+    method_editor = new SimpleMDE({
+      element: $('.method-field')[0],
       forceSync: true,
       indentWithTabs: false,
       tabSize: 4
