@@ -1,0 +1,9 @@
+<div class="comment">
+  <p><%= comment.body %></p>
+  <span class="comment-meta">
+    <span class="glyphicon glyphicon-user"></span> <%= comment.user %>
+    <span title="<%= comment.created_at %>" data-livestamp="<%= comment.created_at.to_time.iso8601 %>">
+      at <%= comment.created_at %>
+    </span>
+  </span>
+</div>

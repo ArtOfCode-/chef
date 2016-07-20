@@ -38,4 +38,10 @@ $(document).on('ready turbolinks:load', () ->
       })
     )
 
+  $('.new-comment-form').on('ajax:success', (ev, data, status, xhr) ->
+    $('.comments').append(data['insert'])
+  ).on('ajax:error', (ev, xhr, status, error) ->
+    chef.createNotification('danger', "Can't create a comment right now - try again later.", $(this))
+  )
+
 )
