@@ -47,6 +47,7 @@
 <hr />
 
 <div class="comments">
+  <h4>Comments</h4>
   <% @recipe.comments.each do |c| %>
     <%= render 'comments/comment', :comment => c %>
   <% end %>
