@@ -22,10 +22,18 @@
 <% @user.public_recipes.limit(5).each do |r| %>
   <%= render 'recipes/minified', :recipe => r %>
 <% end %>
-<%= link_to "All Public recipes »", url_for(:controller => :users, :action => :recipes, :id => @user.id, :type => 'public') %>
+<div class="clearfix">
+  <span class="pull-right">
+    <%= link_to "All Public recipes »", url_for(:controller => :users, :action => :recipes, :id => @user.id, :type => 'public') %>
+  </span>
+</div>
 
 <h4>Internal Recipes</h4>
 <% @user.internal_recipes.limit(5).each do |r| %>
   <%= render 'recipes/minified', :recipe => r %>
 <% end %>
-<% link_to "All Internal recipes »", url_for(:controller => :users, :action => :recipes, :id => @user.id, :type => 'internal') %>
+<div class="clearfix">
+  <span class="pull-right">
+    <%= link_to "All Internal recipes »", url_for(:controller => :users, :action => :recipes, :id => @user.id, :type => 'internal') %>
+  </span>
+</div>
