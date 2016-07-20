@@ -15,7 +15,11 @@
   </span>
   <span class="detail-unit text-muted">
     <%= link_to url_for(:controller => :favorites, :action => :toggle_favorite, :id => @recipe.id), :method => :post, :remote => true, :class => 'favorite-toggle' do %>
-      <span class="glyphicon glyphicon-heart-empty favorite-icon"></span>
+      <% if user_signed_in? && Favorite.where(:recipe => @recipe, :user => current_user).exists? %>
+        <span class="glyphicon glyphicon-heart favorite-icon"></span>
+      <% else %>
+        <span class="glyphicon glyphicon-heart-empty favorite-icon"></span>
+      <% end %>
       <span class="favorite-count"><%= @recipe.favorites.count %></span> <%= "favourite".pluralize(@recipe.favorites.count) %>
     <% end %>
   </span>
