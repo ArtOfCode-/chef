@@ -30,11 +30,6 @@
 
   <div class="field">
     <%= f.label :ingredients, "What ingredients do you need?" %><br />
-    <div class="alert alert-info">
-      <p><span class="glyphicon glyphicon-info-sign"></span> <em>You can use <a class="alert-link" href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>
-        for formatting in this field. <a class="alert-link" href="https://guides.github.com/features/mastering-markdown/">Guide to using Markdown
-          <span class="glyphicon glyphicon-share"></span></a></em></p>
-    </div>
     <%= f.text_area :ingredients, { rows: 7, class: "form-control mde-field", placeholder: "- 200g self-raising flour\n- 200g caster sugar\n..." } %>
   </div>
 
@@ -42,11 +37,6 @@
 
   <div class="field">
     <%= f.label :method, "How do you make it?" %><br />
-    <div class="alert alert-info">
-      <p><span class="glyphicon glyphicon-info-sign"></span> <em>You can use <a class="alert-link" href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>
-        for formatting in this field. <a class="alert-link" href="https://guides.github.com/features/mastering-markdown/">Guide to using Markdown
-          <span class="glyphicon glyphicon-share"></span></a></em></p>
-    </div>
     <%= f.text_area :method, { rows: 15, class: "form-control mde-field" } %>
   </div>
 
