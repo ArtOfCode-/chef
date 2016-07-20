@@ -50,6 +50,10 @@
           <span class="glyphicon glyphicon-list"></span>
           <%= link_to "Public Recipes", url_for(:controller => '/recipes', :action => :public_list) %>
         </span>
+        <span class="nav-link">
+          <span class="glyphicon glyphicon-user"></span>
+          <%= link_to "Users", url_for(:controller => :users, :action => :index, :sort => 'recipes') %>
+        </span>
         <% if user_signed_in? %>
           <span class="nav-link">
             <span class="glyphicon glyphicon-list"></span>

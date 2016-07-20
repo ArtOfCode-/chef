@@ -15,8 +15,10 @@ Rails.application.routes.draw do
 
   post   'recipes/:id/favorite',               :to => 'favorites#toggle_favorite'
 
-  post   'recipes/:id/comment',         :to => 'comments#create'
+  post   'recipes/:id/comment',                :to => 'comments#create'
   delete 'comments/:id',                       :to => 'comments#destroy'
+
+  get    'users',                              :to => 'users#index'
 
   match  '/403',                               :to => 'errors#forbidden',       :via => :all
   match  '/404',                               :to => 'errors#not_found',       :via => :all
