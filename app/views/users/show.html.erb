@@ -4,15 +4,15 @@
 <div class="user-stats">
   <span class="stat-detail">
     <span class="glyphicon glyphicon-list-alt"></span>
-    <%= pluralize(@user.recipes.count, "recipes") %>
+    <%= pluralize(@user.recipes.count, "recipe") %>
   </span>
   <span class="stat-detail">
     <span class="glyphicon glyphicon-heart-empty"></span>
-    <%= pluralize(@user.favorites.count, "favourites") %>
+    <%= pluralize(@user.favorites.count, "favourite") %>
   </span>
   <span class="stat-detail">
     <span class="glyphicon glyphicon-pencil"></span>
-    <%= pluralize(@user.comments.count, "comments") %>
+    <%= pluralize(@user.comments.count, "comment") %>
   </span>
 </div>
 
