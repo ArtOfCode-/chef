@@ -5,7 +5,7 @@ class Recipe < ApplicationRecord
   has_many :comments
 
   validates :access_level, :presence => true
-  validates :title, :presence => true, :length => { :minimum => 15 }
+  validates :title, :presence => true, :length => { :minimum => 6 }
 
   def self.publics
     #Recipe.joins(:access_levels).where(:access_level => { :name => 'Public' })
