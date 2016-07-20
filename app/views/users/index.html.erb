@@ -13,7 +13,7 @@
 <% @users.in_groups_of(4) do |group| %>
   <div class="clearfix row">
     <% group.each do |u| %>
-      <%= render 'users/user', :user => u %>
+      <%= render 'users/user', :user => u unless u.nil? %>
     <% end %>
   </div>
   <br />
