@@ -12,7 +12,7 @@
         <span class="pull-left feature-detail">
           <% hours = recipe.time / 3600 %>
           <% minutes = (recipe.time / 60) - (hours * 60) %>
-          <span class="glyphicon glyphicon-time"></span> <%= hours %>:<%= minutes %>
+          <span class="glyphicon glyphicon-time"></span> <%= sprintf '%02d', hours %>:<%= sprintf '%02d', minutes %>
         </span>
       </div>
     </div>
