@@ -36,7 +36,6 @@ $(document).on('ready turbolinks:load', () ->
         indentWithTabs: false,
         tabSize: 4
       })
-      mde.render()
     )
 
 )
