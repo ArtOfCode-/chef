@@ -37,3 +37,16 @@
     <%= link_to "All Internal recipes »", url_for(:controller => :users, :action => :recipes, :id => @user.id, :type => 'internal') %>
   </span>
 </div>
+
+<% if user_signed_in? && current_user == @user || current_user.is_admin %>
+  <h4>Private Recipes</h4>
+  <p class="text-muted">Your private recipes are only visible to you and administrators.</p>
+  <% @user.private_recipes.limit(5).each do |r| %>
+    <%= render 'recipes/minified', :recipe => r %>
+  <% end %>
+  <div class="clearfix">
+    <span class="pull-right">
+      <%= link_to "All Private recipes »", url_for(:controller => :users, :action => :recipes, :id => @user.id, :type => 'private') %>
+    </span>
+  </div>
+<% end %>
