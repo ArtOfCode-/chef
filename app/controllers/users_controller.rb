@@ -18,6 +18,23 @@ class UsersController < ApplicationController
   end
 
   def recipes
+    case params[:type]
+    when 'public'
+      @recipes = @user.public_recipes
+    when 'internal'
+      unless user_signed_in?
+        render 'errors/not_found' and return
+      end
+      @recipes = @user.internal_recipes
+    when 'private'
+      unless user_signed_in? && (current_user == @user || current_user.is_admin)
+        render 'errors/not_found' and return
+      end
+      @recipes = @user.private_recipes
+    else
+      render 'errors/not_found' and return
+    end
+    @recipes = @recipes.paginate(:page => params[:page], :per_page => 25)
   end
 
   private

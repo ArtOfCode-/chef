@@ -1,0 +1,8 @@
+<h3><%= @user.username %>'s <%= params[:type].titleize %> Recipes</h3>
+<% @recipes.each do |r| %>
+  <%= render 'recipes/minified', :recipe => r %>
+<% end %>
+
+<div class="text-center">
+  <%= will_paginate @recipes, renderer: BootstrapPagination::Rails %>
+</div>
