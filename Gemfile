@@ -29,6 +29,8 @@ gem 'will_paginate-bootstrap'
 gem 'rails-html-sanitizer'
 gem 'redcarpet'
 
+gem 'dotenv'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
