@@ -5,11 +5,17 @@ class UsersController < ApplicationController
     @users = User.all
     case params[:sort]
     when 'newest'
-      @users = @users.order(:created_at => :desc)
+      @users = Rails.cache.fetch('users_newest') do
+         @users.order(:created_at => :desc)
+      end
     when 'recipes'
-      @users = @users.joins(:recipes).group('users.id').order('COUNT(users.id) DESC')
+      @users = Rails.cache.fetch('users_recipes') do
+        @users.joins(:recipes).group('users.id').order('COUNT(users.id) DESC')
+      end
     when 'alpha'
-      @users = @users.order(:username => :asc)
+      @users = Rails.cache.fetch('users_alpha') do
+        @users.order(:username => :asc)
+      end
     end
     @users = @users.paginate(:page => params[:page], :per_page => 50)
   end
