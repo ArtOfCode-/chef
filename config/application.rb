@@ -24,7 +24,5 @@ module Chef
     # config.active_record.raise_in_transactional_callbacks = true
 
     config.exceptions_app = self.routes
-
-    config.web_console.whitelisted_ips = '82.69.87.121'
   end
 end
