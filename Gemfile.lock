@@ -60,6 +60,9 @@ GEM
       responders
       warden (~> 1.2.3)
     dotenv (2.1.1)
+    dotenv-rails (2.1.1)
+      dotenv (= 2.1.1)
+      railties (>= 4.0, < 5.1)
     erubis (2.7.0)
     execjs (2.7.0)
     globalid (0.3.6)
@@ -73,6 +76,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
+    libv8 (3.16.14.15)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -91,6 +95,8 @@ GEM
     orm_adapter (0.5.0)
     pkg-config (1.1.7)
     rack (2.0.1)
+    rack-mini-profiler (0.10.1)
+      rack (>= 1.2.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.0)
@@ -120,6 +126,7 @@ GEM
     rdoc (4.2.2)
       json (~> 1.4)
     redcarpet (3.3.4)
+    ref (2.0.0)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
     sass (3.4.22)
@@ -141,6 +148,9 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.3.11)
+    therubyracer (0.12.2)
+      libv8 (~> 3.16.14.0)
+      ref
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.5)
@@ -172,9 +182,11 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise
-  dotenv
+  dotenv-rails
+  execjs
   jbuilder (~> 2.0)
   jquery-rails
+  rack-mini-profiler
   rails (= 5.0.0)
   rails-html-sanitizer
   redcarpet
@@ -182,6 +194,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   spring
   sqlite3
+  therubyracer
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
@@ -189,4 +202,4 @@ DEPENDENCIES
   will_paginate-bootstrap
 
 BUNDLED WITH
-   1.11.2
+   1.12.5
