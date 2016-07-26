@@ -46,7 +46,7 @@ class CategoriesController < ApplicationController
   end
 
   def search
-    @categories = Category.where('name LIKE \'%?%\'', params[:q]).or(Category.where('description LIKE \'%?%\'', params[:q]))
+    @categories = Category.where('name LIKE ?', "%#{params[:q]}%").or(Category.where('description LIKE ?', "%#{params[:q]}%"))
     count = @categories.count
     @categories = @categories.paginate(:page => params[:page], :per_page => 20)
     render :json => { :items => @categories, :has_more => api_has_more(params[:page], 20, count) }
