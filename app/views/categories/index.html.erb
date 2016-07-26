@@ -2,9 +2,11 @@
 
 <h3>Categories</h3>
 <% @categories.in_groups_of(4) do |group| %>
-  <% group.each do |c| %>
-    <%= render 'categories/category', :category => c unless c.nil? %>
-  <% end %>
+  <div class="row clearfix">
+    <% group.each do |c| %>
+      <%= render 'categories/category', :category => c unless c.nil? %>
+    <% end %>
+  </div>
 <% end %>
 
 <p>
