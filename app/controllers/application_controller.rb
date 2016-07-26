@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   protected
     def api_has_more(page, pagesize, count)
       page ||= 1
-      return count > page * pagesize
+      return count > page.to_i * pagesize.to_i
     end
 
   private
