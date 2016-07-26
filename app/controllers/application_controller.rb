@@ -5,6 +5,12 @@ class ApplicationController < ActionController::Base
   before_action :configure_parameters, if: :devise_controller?
   before_action :authorize_profiler
 
+  protected
+    def api_has_more(page, pagesize, count)
+      page ||= 1
+      return count > page * pagesize
+    end
+
   private
     def configure_parameters
       devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
