@@ -6,13 +6,13 @@
   <span class="detail-unit"><span class="glyphicon glyphicon-list-alt"></span> <%= pluralize(@category.recipes.count, "recipe") %></span>
   <% if user_signed_in? %>
     <span class="detail-unit">
-      <% link_to url_for(:controller => :categories, :action => :edit, :id => @category.id) do %>
+      <%= link_to url_for(:controller => :categories, :action => :edit, :id => @category.id) do %>
         <span class="glyphicon glyphicon-pencil"></span> Edit
       <% end %>
     </span>
     <% if current_user.is_admin %>
       <span class="detail-unit">
-        <% link_to url_for(:controller => :categories, :action => :destroy, :id => @category.id) do %>
+        <%= link_to url_for(:controller => :categories, :action => :destroy, :id => @category.id) do %>
           <span class="glyphicon glyphicon-trash"></span> Delete
         <% end %>
       </span>
