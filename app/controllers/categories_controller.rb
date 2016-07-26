@@ -1,5 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :set_category, :only => [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
+  before_action :verify_admin, :only => [:destroy]
 
   def index
     @categories = Category.all.order(:name => :asc).paginate(:page => params[:page], :per_page => 30)
@@ -19,6 +21,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @recipes = @category.recipes.paginate(:page => params[:page], :per_page => 25)
   end
 
   def edit
@@ -56,5 +59,11 @@ class CategoriesController < ApplicationController
 
     def set_category
       @category = Category.find params[:id]
+    end
+
+    def verify_admin
+      unless current_user.is_admin
+        render 'errors/not_found' and return
+      end
     end
 end

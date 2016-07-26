@@ -1,0 +1,20 @@
+<% content_for :title, "Edit Category" %>
+
+<h3>Edit Category</h3>
+<%= form_for @category, :url => url_for(:controller => :categories, :action => :update) do |f| %>
+  <div class="field">
+    <%= f.label :name, "What should this category be called?" %>
+    <%= f.text_field :name, :class => 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description, "What recipes should this category cover?" %>
+    <%= f.text_area :description,  { :rows => 2, :class => 'form-control' } %>
+  </div>
+
+  <br />
+
+  <div class="actions">
+    <%= f.submit "Save", :class => 'btn btn-success' %>
+  </div>
+<% end %>
