@@ -1,6 +1,7 @@
 class Recipe < ApplicationRecord
   belongs_to :user
   belongs_to :access_level
+  belongs_to :category
   has_many :favorites
   has_many :comments
 
