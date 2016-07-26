@@ -14,7 +14,7 @@
   <%= favicon_link_tag 'icon.ico' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= 'prod' if Rails.env.production? else 'dev' %>">
   <div class="header">
     <div class="header-content center-block">
       <div class="toplevel-controls clearfix">

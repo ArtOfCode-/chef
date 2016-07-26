@@ -14,8 +14,12 @@
  *= require_self
  */
 
-body {
+body.prod {
   background: #EEE;
+}
+
+body.dev {
+  background: black;
 }
 
 a, a:visited {
