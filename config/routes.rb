@@ -23,13 +23,13 @@ Rails.application.routes.draw do
   get    'users/:id/recipes/:type',            :to => 'users#recipes'
 
   get    'categories',                         :to => 'categories#index'
-  get    'categories/:id',                     :to => 'categories#show'
   get    'categories/new',                     :to => 'categories#new'
   post   'categories/new',                     :to => 'categories#create'
+  get    'categories/find',                    :to => 'categories#search'
+  get    'categories/:id',                     :to => 'categories#show'
   get    'categories/:id/edit',                :to => 'categories#edit'
   patch  'categories/:id/edit',                :to => 'categories#update'
   delete 'categories/:id',                     :to => 'categories#destroy'
-  get    'categories/find',                    :to => 'categories#search'
 
   match  '/403',                               :to => 'errors#forbidden',       :via => :all
   match  '/404',                               :to => 'errors#not_found',       :via => :all
