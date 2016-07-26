@@ -7,6 +7,12 @@
   <% end %>
 <% end %>
 
+<p>
+  <% link_to url_for(:controller => :categories, :action => :new) do %>
+    <span class="glyphicon glyphicon-plus"></span> Create a new category
+  <% end %>
+</p>
+
 <div class="text-center">
   <%= will_paginate @categories, renderer: BootstrapPagination::Rails %>
 </div>
