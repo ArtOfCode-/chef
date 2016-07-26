@@ -33,6 +33,7 @@ gem 'rails-html-sanitizer'
 gem 'redcarpet'
 
 gem 'dotenv-rails'
+gem 'rack-mini-profiler'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
