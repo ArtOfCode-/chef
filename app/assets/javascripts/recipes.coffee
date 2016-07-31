@@ -17,8 +17,25 @@ $(document).on('ready turbolinks:load', () ->
       return true
   )
 
+  $('.category-select').select2({
+    ajax:
+      url: "/categories/find"
+      dataType: 'json'
+      delay: 100
+      data: (params) ->
+        return {q: params.term, page: params.page}
+      processResults: (data, params) ->
+        params.page = params.page || 1
+        return {results: data.items, pagination: {more: data.has_more}}
+      cache: true
+  })
+
   $('.access-select').on('change', () ->
     $('.access-desc').text($(this).find('option:selected').data('description'))
+  )
+
+  $('.category-select').on('change', () ->
+    $('.category-desc').text($(this).find('option:selected').data('description'))
   )
 
   $('.favorite-toggle').on('ajax:success', (ev, data, status, xhr) ->
