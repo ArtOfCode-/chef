@@ -56,7 +56,7 @@
         </span>
         <span class="nav-link">
           <span class="glyphicon glyphicon-tag"></span>
-          <% link_to "Categories", url_for(:controller => '/categories', :action => :index) %>
+          <%= link_to "Categories", url_for(:controller => '/categories', :action => :index) %>
         </span>
         <% if user_signed_in? %>
           <span class="nav-link">
