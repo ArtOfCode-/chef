@@ -72,6 +72,10 @@
             <%= link_to "New Recipe", url_for(:controller => '/recipes', :action => :new) %>
           </span>
         <% end %>
+        <span class="nav-link">
+          <span class="glyphicon glyphicon-search"></span>
+          <%= link_to "Search", url_for(:controller => '/search', :action => :results) %>
+        </span>
       </div>
     </div>
   </div>
