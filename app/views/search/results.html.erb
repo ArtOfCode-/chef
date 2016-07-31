@@ -3,12 +3,13 @@
 <h3>Search Results</h3>
 <%= form_tag url_for(:controller => :search, :action => :results), :method => :get do %>
   <div class="field input-group">
-    <%= text_field_tag 'q', nil, :placeholder => "type your search term here...", :class => "form-control" %>
+    <%= text_field_tag 'q', params[:q], :placeholder => "type your search term here...", :class => "form-control" %>
     <span class="input-group-btn">
       <%= submit_tag 'Search', :class => "btn btn-success" %>
     </span>
   </div>
 <% end %>
+<br />
 <p>
   <%= link_to "Alphabetical", url_for(:controller => :search, :action => :results, :q => params[:q], :order => 'alpha') %> |
   <%= link_to "Favorites", url_for(:controller => :search, :action => :results, :q => params[:q], :order => 'favorites') %> |
@@ -18,7 +19,7 @@
 <hr />
 
 <% @results.each do |r| %>
-  <% render 'recipes/minified', :recipe => r %>
+  <%= render 'recipes/minified', :recipe => r %>
 <% end %>
 
 <hr />
