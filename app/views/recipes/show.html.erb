@@ -6,19 +6,24 @@
     <%= @recipe.description %>
   </div>
   <span class="detail-unit text-muted">
-    <span class="glyphicon glyphicon-user"></span> <%= @recipe.user.username %>
+    <span class="glyphicon glyphicon-user" title="This recipe was published by <%= @recipe.user.username %>."></span> <%= @recipe.user.username %>
   </span>
   <span class="detail-unit text-muted">
     <% hours = @recipe.time / 3600 %>
     <% minutes = (@recipe.time / 60) - (hours * 60) %>
-    <span class="glyphicon glyphicon-time"></span> <%= hours %>h <%= minutes %>m
+    <span class="glyphicon glyphicon-time" title="This recipe takes <%= hours %> hours and <%= minutes %> minutes to make."></span> <%= hours %>h <%= minutes %>m
+  </span>
+  <span class="detail-unit text-muted">
+    <%= link_to url_for(:controller => :categories, :action => :show, :id => @recipe.category.id) do %>
+      <span class="glyphicon glyphicon-tag" title="This recipe is part of the <% @recipe.category.name %> category."></span> <%= @recipe.category.name %>
+    <% end %>
   </span>
   <span class="detail-unit text-muted">
     <%= link_to url_for(:controller => :favorites, :action => :toggle_favorite, :id => @recipe.id), :method => :post, :remote => true, :class => 'favorite-toggle' do %>
       <% if user_signed_in? && Favorite.where(:recipe => @recipe, :user => current_user).exists? %>
-        <span class="glyphicon glyphicon-heart favorite-icon"></span>
+        <span class="glyphicon glyphicon-heart favorite-icon" title="You have favourited this recipe."></span>
       <% else %>
-        <span class="glyphicon glyphicon-heart-empty favorite-icon"></span>
+        <span class="glyphicon glyphicon-heart-empty favorite-icon" title="You have not favourited this recipe."></span>
       <% end %>
       <span class="favorite-count"><%= @recipe.favorites.count %></span> <%= "favourite".pluralize(@recipe.favorites.count) %>
     <% end %>
