@@ -32,6 +32,8 @@ gem 'will_paginate-bootstrap'
 gem 'rails-html-sanitizer'
 gem 'redcarpet'
 
+gem 'select2-rails'
+
 gem 'dotenv-rails'
 gem 'rack-mini-profiler'
 

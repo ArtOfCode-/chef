@@ -18,6 +18,7 @@ $(document).on('ready turbolinks:load', () ->
   )
 
   $('.category-select').select2({
+    theme: 'bootstrap'
     ajax:
       url: "/categories/find"
       dataType: 'json'
