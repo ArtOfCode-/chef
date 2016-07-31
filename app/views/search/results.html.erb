@@ -9,6 +9,11 @@
     </span>
   </div>
 <% end %>
+<p>
+  <%= link_to "Alphabetical", url_for(:controller => :search, :action => :results, :q => params[:q], :order => 'alpha') %> |
+  <%= link_to "Favorites", url_for(:controller => :search, :action => :results, :q => params[:q], :order => 'favorites') %> |
+  <%= link_to "Newest", url_for(:controller => :search, :action => :results, :q => params[:q], :order => 'newest') %>
+</p>
 
 <hr />
 
