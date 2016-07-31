@@ -5,7 +5,7 @@
     </div>
     <div class="panel-body">
       <p><%= category.description %></p>
-      <p><span class="glyphicon glyphicon-list-alt"></span> <%= category.recipes.count %> recipes</p>
+      <p><span class="glyphicon glyphicon-list-alt"></span> <%= pluralize(category.recipes.count, "recipe") %></p>
     </div>
   </div>
 </div>
