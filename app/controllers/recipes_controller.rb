@@ -25,6 +25,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new recipe_params
     @recipe.user = current_user
     @recipe.access_level = params[:recipe][:access_level]
+    @recipe.category = params[:recipe][:category]
     if @recipe.save
       redirect_to url_for(:controller => :recipes, :action => :show, :id => @recipe.id)
     else
@@ -40,6 +41,7 @@ class RecipesController < ApplicationController
     params[:recipe][:category] = Category.where(:id => params[:recipe][:category]).first
 
     @recipe.access_level = params[:recipe][:access_level]
+    @recipe.category = params[:recipe][:category]
     if @recipe.update(recipe_params)
       redirect_to url_for(:controller => :recipes, :action => :show, :id => @recipe.id)
     else
