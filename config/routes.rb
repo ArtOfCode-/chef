@@ -31,6 +31,8 @@ Rails.application.routes.draw do
   patch  'categories/:id/edit',                :to => 'categories#update'
   delete 'categories/:id',                     :to => 'categories#destroy'
 
+  get    'search',                             :to => 'search#results'
+
   match  '/403',                               :to => 'errors#forbidden',       :via => :all
   match  '/404',                               :to => 'errors#not_found',       :via => :all
   match  '/409',                               :to => 'errors#conflict',        :via => :all
