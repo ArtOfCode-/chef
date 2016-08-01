@@ -10,7 +10,7 @@
     </span>
     <% if user_signed_in? && (current_user == comment.user || current_user.is_admin) %>
       —
-      <%= link_to url_for(:controller => :comments, :action => :destroy, :id => comment.id), :remote => true, :method => :delete, :data => { :confirm => "Are you sure? This action is not reversible." } do %>
+      <%= link_to url_for(:controller => :comments, :action => :destroy, :id => comment.id), :method => :delete, :data => { :confirm => "Are you sure? This action is not reversible." } do %>
         <span class="glyphicon glyphicon-trash"></span>
         delete
       <% end %>

@@ -16,10 +16,10 @@ class CommentsController < ApplicationController
 
   def destroy
     if @comment.destroy
-      redirect_to url_for(:controller => :recipe, :action => :show, :id => @comment.recipe.id)
+      redirect_to url_for(:controller => :recipes, :action => :show, :id => @comment.recipe.id)
     else
       flash[:alert] = "Can't delete comment right now - try again later."
-      redirect_to url_for(:controller => :recipe, :action => :show, :id => @comment.recipe.id)
+      redirect_to url_for(:controller => :recipes, :action => :show, :id => @comment.recipe.id)
     end
   end
 
