@@ -1,9 +1,18 @@
 <div class="comment">
   <p><%= comment.body %></p>
   <span class="comment-meta text-muted">
-    <span class="glyphicon glyphicon-user"></span> <%= comment.user.username %>
+    <%= link_to url_for(:controller => :users, :action => :show, :id => comment.user.id) do %>
+      <span class="glyphicon glyphicon-user"></span>
+      <%= comment.user.username %>
+    <% end %>
     <span title="<%= comment.created_at %>" data-livestamp="<%= comment.created_at.to_time.iso8601 %>">
       at <%= comment.created_at %>
     </span>
+    <% if user_signed_in? && (current_user == comment.user || current_user.is_admin) %>
+      —
+      <%= link_to url_for(:controller => :comments, :action => :destroy, :id => comment.id), :remote => true, :method => :delete, :data => { :confirm => "Are you sure? This action is not reversible." } do %>
+        <span class="glyphicon glypicon-trash"></span>
+        delete
+      <% end %>
   </span>
 </div>

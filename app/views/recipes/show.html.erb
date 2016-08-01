@@ -6,7 +6,10 @@
     <%= @recipe.description %>
   </div>
   <span class="detail-unit text-muted">
-    <span class="glyphicon glyphicon-user" title="This recipe was published by <%= @recipe.user.username %>."></span> <%= @recipe.user.username %>
+    <%= link_to url_for(:controller => :users, :action => :show, :id => @recipe.user.id) do %>
+      <span class="glyphicon glyphicon-user" title="This recipe was published by <%= @recipe.user.username %>."></span>
+      <%= @recipe.user.username %>
+    <% end %>
   </span>
   <span class="detail-unit text-muted">
     <% hours = @recipe.time / 3600 %>
@@ -56,18 +59,23 @@
   <% @recipe.comments.each do |c| %>
     <%= render 'comments/comment', :comment => c %>
   <% end %>
+  <% if @recipe.comments.count == 0 %>
+    <p>No comments yet.</p>
+  <% end %>
 </div>
 
 <br />
 
-<%= form_for Comment.new, url: url_for(:controller => :comments, :action => :create), :remote => true,
-    html: { class: "new-comment-form" } do |f| %>
-  <div class="field">
-    <%= f.label :body, "Comment Text" %><br />
-    <%= f.text_area :body, { rows: 3, class: "form-control" } %>
-  </div>
-  <br />
-  <div class="actions">
-    <%= f.submit "Add Comment", class: "btn btn-success" %>
-  </div>
+<% if user_signed_in? %>
+  <%= form_for Comment.new, url: url_for(:controller => :comments, :action => :create), :remote => true,
+      html: { class: "new-comment-form" } do |f| %>
+    <div class="field">
+      <%= f.label :body, "Comment Text" %><br />
+      <%= f.text_area :body, { rows: 3, class: "form-control" } %>
+    </div>
+    <br />
+    <div class="actions">
+      <%= f.submit "Add Comment", class: "btn btn-success" %>
+    </div>
+  <% end %>
 <% end %>
