@@ -15,7 +15,7 @@
   </span>
   <span class="detail-unit text-muted">
     <%= link_to url_for(:controller => :categories, :action => :show, :id => @recipe.category.id) do %>
-      <span class="glyphicon glyphicon-tag" title="This recipe is part of the <% @recipe.category.name %> category."></span> <%= @recipe.category.name %>
+      <span class="glyphicon glyphicon-tag" title="This recipe is part of the <%= @recipe.category.name %> category."></span> <%= @recipe.category.name %>
     <% end %>
   </span>
   <span class="detail-unit text-muted">
