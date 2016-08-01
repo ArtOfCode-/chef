@@ -16,9 +16,10 @@ class CommentsController < ApplicationController
 
   def destroy
     if @comment.destroy
-      render :json => { :status => 'success' }
+      redirect_to url_for(:controller => :recipe, :action => :show, :id => @comment.recipe.id)
     else
-      render :json => { :status => 'failed', :message => 'Failed to destroy object.' }, :status => 500
+      flash[:alert] = "Can't delete comment right now - try again later."
+      redirect_to url_for(:controller => :recipe, :action => :show, :id => @comment.recipe.id)
     end
   end
 
