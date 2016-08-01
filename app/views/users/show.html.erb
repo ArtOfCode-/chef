@@ -14,6 +14,14 @@
     <span class="glyphicon glyphicon-pencil"></span>
     <%= pluralize(@user.comments.count, "comment") %>
   </span>
+  <% if user_signed_in? && current_user.is_admin %>
+    <span class="stat-detail">
+      <a href="javascript:void(0)" data-toggle="modal" data-target=".admin-tools">
+        <span class="glyphicon glyphicon-cog"></span>
+        Admin Tools
+      </a>
+    </span>
+  <% end %>
 </div>
 
 <hr />
@@ -48,5 +56,24 @@
     <span class="pull-right">
       <%= link_to "All Private recipes »", url_for(:controller => :users, :action => :recipes, :id => @user.id, :type => 'private') %>
     </span>
+  </div>
+<% end %>
+
+<% if user_signed_in? && current_user.is_admin %>
+  <div class="modal fade mod-tools" tabindex="-1" role="dialog" aria-labelledby="modal-title">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="modal-title">Admin Tools: <%= @user.username %></h4>
+        </div>
+        <div class="modal-body">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>
