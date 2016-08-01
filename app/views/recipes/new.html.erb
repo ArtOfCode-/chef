@@ -55,6 +55,10 @@
 
   <div class="field">
     <%= f.label :category %><br />
+    <div class="alert alert-info">
+      <span class="glyphicon glyphicon-info-sign"></span>
+      Can't find a category that suits? <%= link_to "Create a new category »", url_for(:controller => :categories, :action => :new), :class => "" %>
+    </div>
     <%= f.select :category, options_for_select(Category.all.limit(100).map{|c| [c.name, c.id, { 'data-description' => c.description }]}),
         { :include_blank => true }, { :class => "form-control category-select" } %>
     <p class="text-muted category-desc"></p>

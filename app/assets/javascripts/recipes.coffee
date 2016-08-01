@@ -19,6 +19,7 @@ $(document).on('ready turbolinks:load', () ->
 
   $('.category-select').select2({
     theme: 'bootstrap'
+    placeholder: "click and type to search for a category..."
     ajax:
       url: "/categories/find"
       dataType: 'json'
