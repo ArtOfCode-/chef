@@ -13,6 +13,8 @@ class SearchController < ApplicationController
       @results = @results.joins(:favorites).group('recipes.id').order('COUNT(recipes.id) DESC')
     when "newest"
       @results = @results.order(:created_at => :desc)
+    when 'time'
+      @results = @results.order(:time => :asc)
     end
     @results = @results.paginate(:page => params[:page], :per_page => 25)
   end

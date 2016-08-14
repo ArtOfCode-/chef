@@ -11,9 +11,11 @@
 <% end %>
 <br />
 <p>
+  Order by:
   <%= link_to "Alphabetical", url_for(:controller => :search, :action => :results, :q => params[:q], :order => 'alpha') %> |
   <%= link_to "Favorites", url_for(:controller => :search, :action => :results, :q => params[:q], :order => 'favorites') %> |
-  <%= link_to "Newest", url_for(:controller => :search, :action => :results, :q => params[:q], :order => 'newest') %>
+  <%= link_to "Newest", url_for(:controller => :search, :action => :results, :q => params[:q], :order => 'newest') %> |
+  <%= link_to "Quickest", url_for(:controller => :search, :action => :results, :q => params[:q], :order => 'time') %>
 </p>
 
 <hr />
