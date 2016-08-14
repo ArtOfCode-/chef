@@ -2,10 +2,10 @@ class SearchController < ApplicationController
   def results
     search_term = params[:q] || ""
     ordering = params[:order] || "alpha"
-    @results = Recipe.where('title LIKE ?', "%#{search_term}%")
-               .or(Recipe.where('description LIKE ?', "%#{search_term}%"))
-               .or(Recipe.where('ingredients LIKE ?', "%#{search_term}%"))
-               .or(Recipe.where('method LIKE ?', "%#{search_term}%"))
+    @results = Recipe.publics.where('title LIKE ?', "%#{search_term}%")
+               .or(Recipe.publics.where('description LIKE ?', "%#{search_term}%"))
+               .or(Recipe.publics.where('ingredients LIKE ?', "%#{search_term}%"))
+               .or(Recipe.publics.where('method LIKE ?', "%#{search_term}%"))
     case ordering
     when "alpha"
       @results = @results.order(:title => :asc)
