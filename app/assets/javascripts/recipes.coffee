@@ -58,7 +58,7 @@ $(document).on('ready turbolinks:load', () ->
         indentWithTabs: false,
         tabSize: 4
       })
-    )
+    ).removeClass("mde-field")
 
   $('.new-comment-form').on('ajax:success', (ev, data, status, xhr) ->
     $('.comments').append(data['insert'])
