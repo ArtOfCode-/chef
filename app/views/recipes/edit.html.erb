@@ -55,6 +55,13 @@
 
   <br />
 
+  <div class="field" style="width: 100px;">
+    <%= f.label :serves, "How many people does it serve?" %><br />
+    <%= f.number_field :score, :class => "form-control" %>
+  </div>
+
+  <br />
+
   <div class="field">
     <%= f.label :category %><br />
     <%= f.select :category, options_for_select(Category.all.limit(100).map{|c| [c.name, c.id, { 'data-description' => c.description }]}),

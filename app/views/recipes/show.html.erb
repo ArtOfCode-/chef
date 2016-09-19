@@ -17,6 +17,9 @@
     <span class="glyphicon glyphicon-time" title="This recipe takes <%= hours %> hours and <%= minutes %> minutes to make."></span> <%= hours %>h <%= minutes %>m
   </span>
   <span class="detail-unit text-muted">
+    <span class="glyphicon glyphicon-cutlery" title="This recipe serves <%= @recipe.serves %> people."></span> <%= @recipe.serves %>
+  </span>
+  <span class="detail-unit text-muted">
     <%= link_to url_for(:controller => :categories, :action => :show, :id => @recipe.category.id) do %>
       <span class="glyphicon glyphicon-tag" title="This recipe is part of the <%= @recipe.category.name %> category."></span> <%= @recipe.category.name %>
     <% end %>
